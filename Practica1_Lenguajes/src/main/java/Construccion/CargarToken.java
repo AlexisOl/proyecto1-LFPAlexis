@@ -19,7 +19,7 @@ import static JFrame.frame_principal.Tokenlista;
 public class CargarToken {
     public ArrayList<TokenreporteController> cargarToken() throws FileNotFoundException,IOException,ClassNotFoundException{
         //definimos los espacios que ocupara en nuestro error al ser creado ycreamos array para reporte token
-        int procesoReduccionColumna=movilizar.getCaracteresUsados()-movilizar.getCadenaUsada().length();//indicamos operacion para establecer posicion de columna
+        int procesoReduccionColumna=movilizar.getCantidad()-movilizar.getCadenaUsada().length();//indicamos operacion para establecer posicion de columna
         //convertimos valores a strings
         String nombreToken=movilizar.getTokenProviniente();
         String lexema=movilizar.getCadenaUsada();

@@ -18,7 +18,7 @@ import static JFrame.frame_principal.ErrorLista;
 public class CargarError {
     public ArrayList<Errores> cargarReporte() throws FileNotFoundException,IOException,ClassNotFoundException{
         String fila=movilizar.getFila()+"";
-        String columna=movilizar.getCaracteresUsados()+"";
+        String columna=movilizar.getCantidad()+"";
         String espacio[]={movilizar.getCadenaUsada(),fila,columna};
         Errores error = CrearError.crearError(espacio);
         

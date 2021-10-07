@@ -99,7 +99,7 @@ public class Id {
        
        
         movilizar.setColumna(Contador);
-        movilizar.setCaracteresUsados(movilizar.getCaracteresUsados()+Contador);
+        movilizar.setCantidad(movilizar.getCantidad()+Contador);
         movilizar.setCadenaUsada(LexemaEnsamble.replaceAll(" ", ""));
         if(reporte==true){
             try {

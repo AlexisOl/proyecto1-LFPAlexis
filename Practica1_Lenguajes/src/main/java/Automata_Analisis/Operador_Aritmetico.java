@@ -124,7 +124,7 @@ public class Operador_Aritmetico {
         movimiento.setText(movimiento.getText()+"------------ Al usar "+operadorTotal+" ----------\n");
         ///ingreso tables
         movilizar.setColumna(Contador);
-        movilizar.setCaracteresUsados(movilizar.getCaracteresUsados()+Contador);
+        movilizar.setCantidad(movilizar.getCantidad()+Contador);
         movilizar.setCadenaUsada(operadorTotal.replaceAll(" ", ""));
         if(reporte==true){
             try {

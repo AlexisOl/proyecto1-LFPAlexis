@@ -13,7 +13,7 @@ public class Helper_movimiento {
     //creamos variables
       private int fila;
     private int columna;
-    private int caracteresUsados;
+    private int Catidad_cadenas;
     private int condiconalError;
     private int hayEspacio;
     private String Lexema_completo;
@@ -23,7 +23,7 @@ public class Helper_movimiento {
     public Helper_movimiento(int fila, int columna, int caracteresUsados, int condiconalError, int hayEspacio, String cadenaUsada, String tokenProviniente) {
         this.fila = fila;
         this.columna = columna;
-        this.caracteresUsados = caracteresUsados;
+        this.Catidad_cadenas = caracteresUsados;
         this.condiconalError = condiconalError;
         this.hayEspacio = hayEspacio;
         this.Lexema_completo = cadenaUsada;
@@ -33,7 +33,7 @@ public class Helper_movimiento {
     public Helper_movimiento(int fila, int columna, int caracteresUsados) {
         this.fila = fila;
         this.columna = columna;
-        this.caracteresUsados = caracteresUsados;
+        this.Catidad_cadenas = caracteresUsados;
     }
 
     public Helper_movimiento() {
@@ -56,12 +56,12 @@ public class Helper_movimiento {
         this.columna = columna;
     }
 
-    public int getCaracteresUsados() {
-        return caracteresUsados;
+    public int getCantidad() {
+        return Catidad_cadenas;
     }
 
-    public void setCaracteresUsados(int caracteresUsados) {
-        this.caracteresUsados = caracteresUsados;
+    public void setCantidad(int Catidad_cadenas) {
+        this.Catidad_cadenas = Catidad_cadenas;
     }
     
     public String getCadenaUsada() {

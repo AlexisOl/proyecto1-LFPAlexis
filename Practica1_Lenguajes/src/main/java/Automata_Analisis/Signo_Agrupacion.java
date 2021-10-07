@@ -120,7 +120,7 @@ public class Signo_Agrupacion {
         movimiento.setText(movimiento.getText()+"------------ Al usar "+lexemaEnsamblado+" ----------\n");
         //modificamos valores a enviar a tablas
         movilizar.setColumna(contador);
-        movilizar.setCaracteresUsados(movilizar.getCaracteresUsados()+contador);
+        movilizar.setCantidad(movilizar.getCantidad()+contador);
         movilizar.setCadenaUsada(lexemaEnsamblado.replaceAll(" ", ""));
         if(reporte==true){
             try {

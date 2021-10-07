@@ -349,7 +349,7 @@ public class frame_principal extends javax.swing.JFrame {
                 eliminadorWhile=1;
                 movilizar.setFila(contador);
                 movilizar.setColumna(0);
-                movilizar.setCaracteresUsados(0);
+                movilizar.setCantidad(0);
                 movilizar.setCadenaUsada("");
                 verificadorLinea=linea.charAt(0);//obtenemos valor valor posicion 0 de linea
                 String comprobarPunto=Character.toString(verificadorLinea);//pasamos char a string
@@ -357,57 +357,57 @@ public class frame_principal extends javax.swing.JFrame {
                 
                 if (validaciones.esLetra(verificadorLinea)) {
                        Id.inicio_ID(linea,jTextArea2);
-                    reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                    reduccionLinea=linea.substring(movilizar.getCantidad(), linea.length());
                     pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
-                    while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                    while(movilizar.getCantidad()<linea.length()){//repetimos instancia de automatas
+                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCantidad(), jTextArea2);
                     }
                 } 
              
                 else if(validaciones.esNumero(verificadorLinea)){
                     Numero_o_Decimal.empezar_numero_lexema(linea,jTextArea2);
-                    reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                    reduccionLinea=linea.substring(movilizar.getCantidad(), linea.length());
                     pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
-                    while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                    while(movilizar.getCantidad()<linea.length()){//repetimos instancia de automatas
+                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCantidad(), jTextArea2);
                     }
                 }//Si es +-*/ entre signos parecidos significa que entra a operacion
                 else if (validaciones.esAritmetico(verificadorLinea))  {
                     Operador_Aritmetico.operadorInicio(linea,jTextArea2);
-                    reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                    reduccionLinea=linea.substring(movilizar.getCantidad(), linea.length());
                     pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
-                    while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                    while(movilizar.getCantidad()<linea.length()){//repetimos instancia de automatas
+                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCantidad(), jTextArea2);
                     }
                 }//si es . , ; entre signos parecidos significa que entra a puntuacion
                 else if(validaciones.esAgrupacion(verificadorLinea)){
                        Signo_Agrupacion.agrupacionInicio(linea,jTextArea2);
-                        reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                        reduccionLinea=linea.substring(movilizar.getCantidad(), linea.length());
                         pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
-                        while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                            repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                        while(movilizar.getCantidad()<linea.length()){//repetimos instancia de automatas
+                            repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCantidad(), jTextArea2);
                         }
                 }  else if(validaciones.esPuntuacion(verificadorLinea)){
 
                         Signo_Puntuacion.puntuacionInicio(linea,jTextArea2);
-                    reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                    reduccionLinea=linea.substring(movilizar.getCantidad(), linea.length());
                     pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
-                    while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                    while(movilizar.getCantidad()<linea.length()){//repetimos instancia de automatas
+                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCantidad(), jTextArea2);
                     }
                     }else{
                         try {
                             //cargamos reporte de error
                             movilizar.setCadenaUsada(Character.toString(verificadorLinea));
-                            movilizar.setCaracteresUsados(1);
+                            movilizar.setCantidad(1);
                             cargarError.cargarReporte();
                             movilizar.setCondiconalError(1);
-                            reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+                            reduccionLinea=linea.substring(movilizar.getCantidad(), linea.length());
                             pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
                             //señalizaos error
                             jTextArea2.setText(jTextArea2.getText()+"error con el lexema "+movilizar.getCadenaUsada()+"\n");
-                            while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                                repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                            while(movilizar.getCantidad()<linea.length()){//repetimos instancia de automatas
+                                repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCantidad(), jTextArea2);
                             }
                         } catch (FileNotFoundException ex) {
                             Logger.getLogger(frame_principal.class.getName()).log(Level.SEVERE, null, ex);
@@ -464,7 +464,7 @@ public class frame_principal extends javax.swing.JFrame {
         //reiniciamos valores
         movilizar.setCondiconalError(0);
         jTextArea2.setText("");
-        movilizar.setCaracteresUsados(0);
+        movilizar.setCantidad(0);
         movilizar.setCadenaUsada("");
         movilizar.setFila(0);
         movilizar.setColumna(0);

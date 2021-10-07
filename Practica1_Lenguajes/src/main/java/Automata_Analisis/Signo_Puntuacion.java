@@ -109,7 +109,7 @@ public class Signo_Puntuacion {
         /*tablas ingreso  
         */
         movilizar.setColumna(contador);
-        movilizar.setCaracteresUsados(movilizar.getCaracteresUsados()+contador);
+        movilizar.setCantidad(movilizar.getCantidad()+contador);
         movilizar.setCadenaUsada(LexemaEnsamblado.replaceAll(" ", ""));
         if(reporte==true){
             try {

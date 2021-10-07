@@ -17,13 +17,18 @@ public class Ayuda_verificador {
      char verificadorLinea;
     int caracteresUsados;
     public static Ayuda_verificador instanciadores;
-    //creamos constructor para los datos que instanciarán a método de repitencia automata
+ 
     public Ayuda_verificador(String linea, String reduccionLinea, char verificadorLinea, int caracteresUsados) {
         this.linea = linea;
         this.Cantidad_linea = reduccionLinea;
         this.verificadorLinea = verificadorLinea;
         this.caracteresUsados = caracteresUsados;
     }
+
+    public Ayuda_verificador() {
+    }
+    
+    
     
     public String getLinea() {
         return linea;

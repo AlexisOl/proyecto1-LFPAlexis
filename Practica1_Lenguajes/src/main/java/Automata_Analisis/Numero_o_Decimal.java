@@ -119,7 +119,7 @@ public class Numero_o_Decimal {
        
         //modificamos valores a enviar a tablas
         movilizar.setColumna(Contador);
-        movilizar.setCaracteresUsados(movilizar.getCaracteresUsados()+Contador);
+        movilizar.setCantidad(movilizar.getCantidad()+Contador);
         movilizar.setCadenaUsada(numeroDecimalTotal.replaceAll(" ", ""));
         if(reporte==true){
             try {
