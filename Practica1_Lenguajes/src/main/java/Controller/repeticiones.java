@@ -10,7 +10,6 @@ import Automata_Analisis.Numero_o_Decimal;
 import Automata_Analisis.Operador_Aritmetico;
 import Automata_Analisis.Signo_Agrupacion;
 import Automata_Analisis.Signo_Puntuacion;
-import static Helper.Ayuda_verificador.instanciadores;
 import static Helper.Helper_movimiento.movilizar;
 import static JFrame.frame_principal.cargarError;
 
@@ -22,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import static JFrame.frame_principal.jTextArea2;
 import Validacion.validaciones;
+import static Helper.Ayuda_verificador.inciovariables;
 
 /**
  *
@@ -84,8 +84,8 @@ public class repeticiones {
             }
         }
         //modificamos valores iniciales al recargar este método
-        instanciadores.setLinea(linea);
-        instanciadores.setReduccionLinea(reduccionLinea);
-        instanciadores.setVerificadorLinea(verificadorLinea);
+        inciovariables.setLinea(linea);
+        inciovariables.setReduccionLinea(reduccionLinea);
+        inciovariables.setVerificadorLinea(verificadorLinea);
     }
 }

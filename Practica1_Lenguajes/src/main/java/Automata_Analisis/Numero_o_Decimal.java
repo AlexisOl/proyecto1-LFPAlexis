@@ -84,7 +84,7 @@ public class Numero_o_Decimal {
         reporte= false;
         numeroDecimalTotal="";
         Contador=0;
-        textToChar=linea.toCharArray();//formato matriz
+        textToChar=linea.toCharArray();
         estado_Actual=0;
         while((continuar)&&Contador<linea.length()&&resultado!=4){
             if(Character.isSpaceChar(textToChar[Contador])){

@@ -10,13 +10,14 @@ package Helper;
  * @author alexis
  */
 public class Ayuda_verificador {
+        public static Ayuda_verificador inciovariables;
     String linea;
      String Cantidad_linea;
    // nos serviara como auxiliar para ver el tamanio
      
      char verificadorLinea;
     int caracteresUsados;
-    public static Ayuda_verificador instanciadores;
+
  
     public Ayuda_verificador(String linea, String reduccionLinea, char verificadorLinea, int caracteresUsados) {
         this.linea = linea;
@@ -63,6 +64,6 @@ public class Ayuda_verificador {
         this.caracteresUsados = caracteresUsados;
     }
     public static void INIcio_lexemas_analisis_manejador(){
-         instanciadores= new Ayuda_verificador("","",' ',0);
+         inciovariables= new Ayuda_verificador("","",' ',0);
     }
 }

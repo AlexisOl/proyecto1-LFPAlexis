@@ -50,7 +50,7 @@ public class Signo_Agrupacion {
     public static void agrupacionInicio(String linea,JTextArea movimiento){
         //incializamos  y creamos valores
         Signo_Agrupacion agrupacion = new Signo_Agrupacion();
-        agrupacion.inicializacion(linea,movimiento);
+        agrupacion.inicio(linea,movimiento);
         
     }
 
@@ -82,7 +82,7 @@ public class Signo_Agrupacion {
     }
     
     
-    public void inicializacion(String linea,JTextArea movimiento){
+    public void inicio(String linea,JTextArea movimiento){
         //reseteamos variables
         movilizar.setHayEspacio(0);
         reporte=false;
@@ -109,7 +109,7 @@ public class Signo_Agrupacion {
         }
         if(Actual_result==6){
             //si obtenemos error notificamos y modificamos que acceda a tabla error
-            movimiento.setText(movimiento.getText()+"------------Error------------ \n");
+            movimiento.setText(movimiento.getText()+"error en el lexema- \n");
             reporte=true;
         }  
         //estructuramos cadena usada
@@ -117,7 +117,8 @@ public class Signo_Agrupacion {
         
         contador++;
         }
-        movimiento.setText(movimiento.getText()+"------------ Al usar "+lexemaEnsamblado+" ----------\n");
+
+
         //modificamos valores a enviar a tablas
         movilizar.setColumna(contador);
         movilizar.setCantidad(movilizar.getCantidad()+contador);

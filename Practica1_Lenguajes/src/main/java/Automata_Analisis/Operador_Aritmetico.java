@@ -32,7 +32,7 @@ public class Operador_Aritmetico {
     boolean reporte = false;
     
     char [] textToChar;
-    String operadorTotal="";
+    String lexemaCompleto="";
     {
         matrizAritmetica[0][0]=1;
         matrizAritmetica[0][1]=1;
@@ -50,7 +50,7 @@ public class Operador_Aritmetico {
     public static void operadorInicio(String linea,JTextArea movimiento){
         //incializamos  y creamos valores
         Operador_Aritmetico operador = new Operador_Aritmetico();
-        operador.inicializacion(linea,movimiento);
+        operador.inicio(linea,movimiento);
         
     }
     public int nextEstado(int estadoPasable,int caracter){
@@ -83,10 +83,10 @@ public class Operador_Aritmetico {
         
     }
  
-    public void inicializacion(String linea,JTextArea movimiento){
+    public void inicio(String linea,JTextArea movimiento){
         movilizar.setHayEspacio(0);
         reporte=false;
-        operadorTotal="";
+        lexemaCompleto="";
         Contador=0;
         textToChar=linea.toCharArray();
        //ingreso y reinicio del proceo de analisis 
@@ -117,15 +117,15 @@ public class Operador_Aritmetico {
             reporte=true;
         }  
       
-        operadorTotal=operadorTotal+Character.toString(textToChar[Contador]);
+        lexemaCompleto=lexemaCompleto+Character.toString(textToChar[Contador]);
         
         Contador++;
         }
-        movimiento.setText(movimiento.getText()+"------------ Al usar "+operadorTotal+" ----------\n");
+
         ///ingreso tables
         movilizar.setColumna(Contador);
         movilizar.setCantidad(movilizar.getCantidad()+Contador);
-        movilizar.setCadenaUsada(operadorTotal.replaceAll(" ", ""));
+        movilizar.setCadenaUsada(lexemaCompleto.replaceAll(" ", ""));
         if(reporte==true){
             try {
              
