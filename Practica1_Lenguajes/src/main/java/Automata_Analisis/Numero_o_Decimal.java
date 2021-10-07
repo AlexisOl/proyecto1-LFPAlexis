@@ -28,13 +28,12 @@ public class Numero_o_Decimal {
      int Contador = 0;
      
      //variables de estados
-     int estadoPresente=0;
-     int estadoIr=0;
+     int estado_Actual=0;
+     int estado_siguiente=0;
      
      int resultado=0;
      boolean reporte = false;
-     int enviarReporte=0;//enteros
-    char [] textToChar;//caracter
+    char [] textToChar;
     String numeroDecimalTotal="";
     {
         matrizNumero[0][0]=1;
@@ -64,10 +63,9 @@ public class Numero_o_Decimal {
         }   
         return resultado;
     }
-    public int comprobarExistencia(char caracter){
+    
+    public int Tipo_Simbolo(char caracter){
         resultado=4;
-        String comprobarPunto=Character.toString(caracter);
-        //verificamos si existe en nuestro abecedario los datos y asignamos valor
         if (validaciones.esNumero(caracter)) {
             resultado=0;
         } else if (validaciones.esPunto(caracter)) {
@@ -84,35 +82,32 @@ public class Numero_o_Decimal {
         //reseteamos variables
         movilizar.setHayEspacio(0);
         reporte= false;
-        enviarReporte=0;
         numeroDecimalTotal="";
         Contador=0;
         textToChar=linea.toCharArray();//formato matriz
-        estadoPresente=0;
+        estado_Actual=0;
         while((continuar)&&Contador<linea.length()&&resultado!=4){
-            //puede acceder únicamente si cumple con tener letras y estar en el abecedario
             if(Character.isSpaceChar(textToChar[Contador])){
-                //si tiene espacio finalizamos proceso
+                //verificammos espacios
+                
                 if(Contador==0){
                 }else{
                     continuar=false;
                     movilizar.setHayEspacio(1);
                 }
             }else{
-                //llamamos al estado donde se va y pasamos caracter en determinado valor y el estado donde nos encontramos
-                estadoIr= next(estadoPresente,comprobarExistencia(textToChar[Contador]));
-                //mensaje de movilidad
-                movimiento.setText(movimiento.getText()+"se movio del primer estado:  "+estadoPresente+" al estado: "+estadoIr+" con el lexema:"
+                estado_siguiente= next(estado_Actual,Tipo_Simbolo(textToChar[Contador]));
+                //mensajes de Token
+                movimiento.setText(movimiento.getText()+"se movio del primer estado:  "+estado_Actual+" al estado: "+estado_siguiente+" con el lexema:"
                         + " "+textToChar[Contador]+"\n");
-                estadoPresente=estadoIr;
+                estado_Actual=estado_siguiente;
         }
         
         if(resultado==4){
-            //si obtenemos error notificamos y modificamos que acceda a tabla error
             movimiento.setText(movimiento.getText()+"Error en el lexema \n");
             reporte = true;
         }
-        //estructuramos cadena usada
+        //ensable de cadena
         numeroDecimalTotal=numeroDecimalTotal+Character.toString(textToChar[Contador]);
         
         Contador++;
@@ -137,7 +132,9 @@ public class Numero_o_Decimal {
                 Logger.getLogger(Id.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else{
-            //identificamos si es decimal o numero
+            //se mira si es decimal o numero
+            
+            
             if (numeroDecimalTotal.contains(".")) {
                     movilizar.setTokenProviniente("Decimal");
             }else{

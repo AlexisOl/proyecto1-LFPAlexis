@@ -6,7 +6,7 @@
 package Construccion;
 import static Helper.Helper_movimiento.movilizar;
 import Reportes_Objetos.CrearToken;
-import Reportes_Objetos.ReporteTokensObjeto;
+import Reportes_Objetos.TokenreporteController;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import static JFrame.frame_principal.Tokenlista;
  * @author alexis
  */
 public class CargarToken {
-    public ArrayList<ReporteTokensObjeto> cargarToken() throws FileNotFoundException,IOException,ClassNotFoundException{
+    public ArrayList<TokenreporteController> cargarToken() throws FileNotFoundException,IOException,ClassNotFoundException{
         //definimos los espacios que ocupara en nuestro error al ser creado ycreamos array para reporte token
         int procesoReduccionColumna=movilizar.getCaracteresUsados()-movilizar.getCadenaUsada().length();//indicamos operacion para establecer posicion de columna
         //convertimos valores a strings
@@ -30,7 +30,7 @@ public class CargarToken {
             columna="1";
         }
         String espacio[]={nombreToken,lexema,fila,columna};
-        ReporteTokensObjeto tokens = CrearToken.crearToken(espacio);//lenamos espacios en reporte token
+        TokenreporteController tokens = CrearToken.crearToken(espacio);//lenamos espacios en reporte token
         Tokenlista.add(tokens);//agreagamos un nuevo token
         return Tokenlista;
     }

@@ -17,12 +17,13 @@ import static JFrame.frame_principal.ErrorLista;
  */
 public class CargarError {
     public ArrayList<Errores> cargarReporte() throws FileNotFoundException,IOException,ClassNotFoundException{
-        //definimos los espacios que ocupara en nuestro error al ser creado y estrucamos array list para reporte error
         String fila=movilizar.getFila()+"";
         String columna=movilizar.getCaracteresUsados()+"";
         String espacio[]={movilizar.getCadenaUsada(),fila,columna};
-        Errores error = CrearError.crearError(espacio);//ingresamos espacios al reporte error
-        ErrorLista.add(error);//agreagamos un nuevo error
+        Errores error = CrearError.crearError(espacio);
+        
+        
+        ErrorLista.add(error);// se agrega al arraylist
         return ErrorLista;
     }
 }

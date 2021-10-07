@@ -7,6 +7,7 @@ package Automata_Analisis;
 
 import static Helper.Helper_movimiento.movilizar;
 import static JFrame.frame_principal.*;
+import Validacion.validaciones;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +26,6 @@ public class Id {
     int estado_actual=0;
      int estado_siguiente=0;
      int resultado=0;
-      int enviarReporte=0;
       boolean reporte = false;
     char [] textToChar;
     String LexemaEnsamble="";
@@ -45,7 +45,7 @@ public class Id {
         
     }
     public int Next(int estadoPasable,int caracter){
-        resultado=3;
+        resultado=-1;
        
         if(caracter>=0&&caracter<=1){
             resultado = matrizID[estadoPasable][caracter];
@@ -53,10 +53,10 @@ public class Id {
         return resultado;
     }
     public int Tipo_Simbolo(char caracter){
-        resultado=3;
-        if(Character.isLetter(caracter)){
+        resultado=-1;
+        if(validaciones.esLetra(caracter)){
                 resultado=0;
-            }else if(Character.isDigit(caracter)){
+            }else if(validaciones.esNumero(caracter)){
                 resultado=1;
             }
         return resultado;
@@ -69,7 +69,7 @@ public class Id {
         Contador=0;
         textToChar=linea.toCharArray();//formato matriz
         estado_actual=0;
-        while((lectura)&&Contador<linea.length()&&resultado!=3){
+        while((lectura)&&Contador<linea.length()&&resultado!=-1){
        
             if(Character.isSpaceChar(textToChar[Contador])){
                 
@@ -84,7 +84,7 @@ public class Id {
                         + " "+textToChar[Contador]+"\n");
                 estado_actual=estado_siguiente;
         }
-        if(resultado==3){
+        if(resultado==-1){
             movimiento.setText(movimiento.getText()+"Error en el lexema \n");
             reporte=true;
         }  

@@ -5,7 +5,7 @@
  */
 package Tablas;
 
-import Reportes_Objetos.ReporteTokensObjeto;
+import Reportes_Objetos.TokenreporteController;
 import java.util.ArrayList;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class tokens_Table {
 
-    public static void Token_Table(ArrayList<ReporteTokensObjeto> token_datos,JTable table) {
+    public static void Token_Table(ArrayList<TokenreporteController> token_datos,JTable table) {
       
         DefaultTableModel modeloTabla = new DefaultTableModel();
         table.setModel(modeloTabla);
@@ -28,7 +28,7 @@ public class tokens_Table {
     
         
         // ingreso de la tabla
-        for (ReporteTokensObjeto token : token_datos) {
+        for (TokenreporteController token : token_datos) {
             modeloTabla.addRow(new Object[]{token.getNombreToken(),token.getLexema(),token.getFila(),
                 token.getColumna()});
         }

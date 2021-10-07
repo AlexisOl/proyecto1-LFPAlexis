@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package Main;
-import Helper.Datos_manejadores;
+import Helper.Ayuda_verificador;
 import Helper.Helper_movimiento;
 import JFrame.*;
 
@@ -21,9 +21,13 @@ public class NewMain {
         // Clase principal y llamamos el frame
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //inicializamos estructuradores de datos
-                Helper_movimiento.crearMovilizador();//llamamos a movilizar datos
-                Datos_manejadores.crearDatosInstanciadores();//llamamos instanciadores
+                //inicio de movimiento:
+                
+                Helper_movimiento.Inicio_Movimiento_linea();
+                Ayuda_verificador.INIcio_lexemas_analisis_manejador();
+                
+            //ir al frame
+                
                 frame_principal ingreso = new frame_principal();
                 ingreso.setVisible(true);
             }

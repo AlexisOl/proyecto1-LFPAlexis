@@ -9,6 +9,7 @@ import static Helper.Helper_movimiento.movilizar;
 import static JFrame.frame_principal.cargarError;
 import static JFrame.frame_principal.cargarLexema;
 import static JFrame.frame_principal.cargarToken;
+import Validacion.validaciones;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,6 +25,7 @@ public class Signo_Puntuacion {
     String LexemaEnsamblado="";
     boolean lectura=true;
     boolean reporte = false;
+    
     int contador = 0;
     int estado_Actual=0;
     int estado_siguiente=0; 
@@ -42,7 +44,6 @@ public class Signo_Puntuacion {
  
 
     public static void puntuacionInicio(String linea,JTextArea movimiento){
-        //incializamos  y creamos valores
         Signo_Puntuacion puntuacion = new Signo_Puntuacion();
         puntuacion.inicializacion(linea,movimiento);
         
@@ -56,17 +57,18 @@ public class Signo_Puntuacion {
     }
     public int comprobarExistencia(char caracter){
         resultado=-1;
-        String comprobarPunto=Character.toString(caracter);
-        //verificamos si existe en nuestro abecedario los datos y asignamos valor
-        if(comprobarPunto.equals(".")){
+       if (validaciones.esPuntuacion(caracter)) {
+        if(caracter==('.')){
                 resultado=0;
-        }else if(comprobarPunto.equals(",")){
+        }else if(caracter==','){
                 resultado=1;
-        }else if(comprobarPunto.equals(";")){
+        }else if(caracter==';'){
                 resultado=2;
-        }else if(comprobarPunto.equals(":")){
+        }else if(caracter==':'){
                 resultado=3;
-        }
+        } 
+       }
+       
         return resultado;
     }
     public void inicializacion(String linea,JTextArea movimiento){
@@ -75,30 +77,27 @@ public class Signo_Puntuacion {
         reporte=false;
         LexemaEnsamblado="";
         contador=0;
-        textToChar=linea.toCharArray();//formato matriz
+        textToChar=linea.toCharArray();
+        
+        
+        
         estado_Actual=0;
         while((lectura)&&contador<linea.length()&&resultado!=4){
-            //puede acceder únicamente si cumple con tener letras y estar en el abecedario
             if(Character.isSpaceChar(textToChar[contador])){
-                //si tiene espacio finalizamos proceso
                 if(contador==0){
                 }else{
                     lectura=false;
                     movilizar.setHayEspacio(1);
                 }
             }else{
-                //llamamos al estado donde se va y pasamos caracter en determinado valor y el estado donde nos encontramos
                 estado_siguiente= Next(estado_Actual,comprobarExistencia(textToChar[contador]));
-                //mensaje de movilidad
                 movimiento.setText(movimiento.getText()+"Me movi de estado --> "+estado_Actual+" hacia --> "+estado_siguiente+" con caracter: "+textToChar[contador]+"\n");
                 estado_Actual=estado_siguiente;
         }
         if(resultado==4){
-            //si obtenemos error notificamos y modificamos que acceda a tabla error
             movimiento.setText(movimiento.getText()+"Error en el lexema \n");
             reporte=true;
         }  
-        //estructuramos cadena usada
         LexemaEnsamblado=LexemaEnsamblado+Character.toString(textToChar[contador]);
         
         contador++;

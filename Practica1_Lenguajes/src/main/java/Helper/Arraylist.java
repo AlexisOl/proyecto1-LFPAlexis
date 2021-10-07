@@ -8,7 +8,7 @@ package Helper;
 import Reportes.Error_reporte;
 import Reportes.Reporte_Lexema;
 import Reportes.Reporte_Token;
-import Reportes_Objetos.ReporteTokensObjeto;
+import Reportes_Objetos.TokenreporteController;
 import java.util.ArrayList;
 
 /**
@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * @author alexis
  */
 public class Arraylist {
-    public static ArrayList<ReporteTokensObjeto> tokensLista;
+    public static ArrayList<TokenreporteController> tokensLista;
     public static ArrayList<Reporte_Lexema> lexemaLista;
     public static ArrayList<Error_reporte> erroresLista;
     

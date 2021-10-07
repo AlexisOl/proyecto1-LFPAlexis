@@ -9,6 +9,7 @@ import static Helper.Helper_movimiento.movilizar;
 import static JFrame.frame_principal.cargarError;
 import static JFrame.frame_principal.cargarLexema;
 import static JFrame.frame_principal.cargarToken;
+import Validacion.validaciones;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -52,7 +53,7 @@ public class Operador_Aritmetico {
         operador.inicializacion(linea,movimiento);
         
     }
-    public int conseguirSiguiente(int estadoPasable,int caracter){
+    public int nextEstado(int estadoPasable,int caracter){
         resultado=5;
         //verificamos caracter menor igual a 4
         if(caracter>=0&&caracter<=4){
@@ -60,30 +61,36 @@ public class Operador_Aritmetico {
         }   
         return resultado;
     }
-    public int comprobarExistencia(char caracter){
-        resultado=5;
-        String comprobarPunto=Character.toString(caracter);
-        //verificamos si existe en nuestro abecedario los datos y asignamos valor
-        if(comprobarPunto.equals("+")){
-                resultado=0;
-        }else if(comprobarPunto.equals("-")){
-                resultado=1;
-        }else if(comprobarPunto.equals("*")){
-                resultado=2;
-        }else if(comprobarPunto.equals("/")){
-                resultado=3;
-        }else if(comprobarPunto.equals("%")){
-                resultado=4;
+       public int Tipo_Simbolo(char text) {
+        int number_Result=-1;
+        if (validaciones.esAritmetico(text)) {
+        if (text == '+') {
+            return number_Result = 0;
+        } else if( text == '-') {
+            return number_Result = 1;
+        }else if (text == '*') {
+            return number_Result = 2;
+        } else if (text == '%') {
+            return number_Result = 3;
+        }else if  (text == '/'){
+        return number_Result = 4;
+        } else {
+            return number_Result = -1;
+        } 
+        } else {
+            return number_Result =-1;
         }
-        return resultado;
+        
     }
+ 
     public void inicializacion(String linea,JTextArea movimiento){
-        //reseteamos variables
         movilizar.setHayEspacio(0);
         reporte=false;
         operadorTotal="";
         Contador=0;
-        textToChar=linea.toCharArray();//formato matriz
+        textToChar=linea.toCharArray();
+       //ingreso y reinicio del proceo de analisis 
+       
         estado_actual=0;
         while((lectura)&&Contador<linea.length()&&resultado!=5){
             //ver si esta en el alfabeto
@@ -97,8 +104,9 @@ public class Operador_Aritmetico {
                 }
             }else{
                
-                estado_siguiente= conseguirSiguiente(estado_actual,comprobarExistencia(textToChar[Contador]));
-                //mensaje de movilidad
+                estado_siguiente= nextEstado(estado_actual,Tipo_Simbolo(textToChar[Contador]));
+                //mensajes de tokennn
+                
                      movimiento.setText(movimiento.getText()+"se movio del primer estado:  "+estado_actual+" al estado: "+estado_siguiente+" con el lexema:"
                         + " "+textToChar[Contador]+"\n");
                      estado_actual=estado_siguiente;
@@ -114,7 +122,7 @@ public class Operador_Aritmetico {
         Contador++;
         }
         movimiento.setText(movimiento.getText()+"------------ Al usar "+operadorTotal+" ----------\n");
-        //modificamos valores a enviar a tablas
+        ///ingreso tables
         movilizar.setColumna(Contador);
         movilizar.setCaracteresUsados(movilizar.getCaracteresUsados()+Contador);
         movilizar.setCadenaUsada(operadorTotal.replaceAll(" ", ""));

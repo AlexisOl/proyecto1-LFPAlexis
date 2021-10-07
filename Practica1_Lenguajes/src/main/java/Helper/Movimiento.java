@@ -19,9 +19,9 @@ public class Movimiento {
     private String token;
     private int espacio_Texto;
     private Tipos tipoToken;
-    private int cantidad_Lexemas;
+    private int cantidad_Lexemas_token;
 public static Movimiento moverse;
-
+//sobrecarga de metodos
     public Movimiento(int fila, int columna, int lugarError, String lexema, String token, int espacio_Texto) {
         this.fila = fila;
         this.columna = columna;
@@ -39,10 +39,11 @@ public static Movimiento moverse;
         this.token = token;
         this.espacio_Texto = espacio_Texto;
         this.tipoToken = tipoToken;
-        this.cantidad_Lexemas = cantidad_Lexemas;
+        this.cantidad_Lexemas_token = cantidad_Lexemas;
     }
 
     public Movimiento() {
+        
     }
 
    
@@ -106,11 +107,11 @@ public static Movimiento moverse;
     }
 
     public int getCantidad_Lexemas() {
-        return cantidad_Lexemas;
+        return cantidad_Lexemas_token;
     }
 
     public void setCantidad_Lexemas(int cantidad_Lexemas) {
-        this.cantidad_Lexemas = cantidad_Lexemas;
+        this.cantidad_Lexemas_token = cantidad_Lexemas;
     }
     
     

@@ -12,6 +12,8 @@ import javax.swing.JTextArea;
  * @author alexis
  */
 public class Contador_Lineas {
+    
+    /// Metodo para determinar cuantas lineas hay en el area
     public void Contar(JTextArea text, JTextArea actual) {
         actual.setText("");
         text.setCaretPosition(0);

@@ -18,16 +18,17 @@ import javax.swing.JTextArea;
  */
 public class CargaArchivo {
     public void leer(File archivo, JTextArea text, JTextArea numLineas) throws FileNotFoundException, IOException, ClassNotFoundException {
-        //Creamos un metodo con parametros archivo y text area que se ingresaran en inicio
-        FileReader leerA = new FileReader(archivo);//ingresamos archivo
-        BufferedReader leerTA = new BufferedReader(leerA);//lector del archivo
+     
+        FileReader leerA = new FileReader(archivo);
+        BufferedReader leerTA = new BufferedReader(leerA);
         String linea;
-        //indicamos que lea linea por linea e imprima en el text area
+        //ciclo para ver todo el texto
+        
         while ((linea = leerTA.readLine()) != null) {
             text.append(linea+"\n");
         }
         Contador_Lineas lineas = new Contador_Lineas();
-        
+        //lineas del texto
         lineas.Contar(text, numLineas);
     }
 }

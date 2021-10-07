@@ -10,11 +10,13 @@ package Reportes_Objetos;
  * @author alexis
  */
 public class CrearToken {
-    public static ReporteTokensObjeto crearToken(String[] espacio){
-        //Creamos un retorno de tipo reporte token con parametros tipo arreglo
-        ReporteTokensObjeto token=null;
-        //creamos reporte token con datos y convertimos string a int        
-        token= new ReporteTokensObjeto(espacio[0],espacio[1],Integer.parseInt(espacio[2]),Integer.parseInt(espacio[3]));
+    public static TokenreporteController crearToken(String[] Array){
+        TokenreporteController token=null;
+      
+        token= new TokenreporteController(Array[0],
+                                                                    Array[1],
+                                                                    Integer.valueOf(Array[2]),
+                                                                    Integer.valueOf(Array[3]));
         return token;
     }
 }

@@ -29,7 +29,16 @@ public class Helper_movimiento {
         this.Lexema_completo = cadenaUsada;
         this.tokenProviniente = tokenProviniente;
     }
-    
+
+    public Helper_movimiento(int fila, int columna, int caracteresUsados) {
+        this.fila = fila;
+        this.columna = columna;
+        this.caracteresUsados = caracteresUsados;
+    }
+
+    public Helper_movimiento() {
+    }
+   
 
     public int getFila() {
         return fila;
@@ -87,7 +96,7 @@ public class Helper_movimiento {
         this.hayEspacio = hayEspacio;
     }
     
-    public static void crearMovilizador(){
+    public static void Inicio_Movimiento_linea(){
          movilizar= new Helper_movimiento(0,0,0,0,0,"","");
     }
 }

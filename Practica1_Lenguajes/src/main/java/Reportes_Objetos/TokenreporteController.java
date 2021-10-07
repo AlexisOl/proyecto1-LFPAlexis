@@ -8,12 +8,14 @@ package Reportes_Objetos;
  *
  * @author alexis
  */
-public class ReporteTokensObjeto {
+public class TokenreporteController {
     //Creamos variables
-    String nombreToken, lexema;
-    int fila,columna;
+    private String nombreToken;
+    private String lexema;
+    private int fila;
+    private int columna;
     //Realizamos constructor para reporte token
-    public ReporteTokensObjeto(String nombreToken, String lexema, int fila, int columna) {
+    public TokenreporteController(String nombreToken, String lexema, int fila, int columna) {
         this.nombreToken = nombreToken;
         this.lexema = lexema;
         this.fila = fila;

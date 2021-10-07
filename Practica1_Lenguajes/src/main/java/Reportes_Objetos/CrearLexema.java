@@ -12,11 +12,13 @@ import Model.Lexemas_model;
  * @author alexis
  */
 public class CrearLexema {
-    public static Lexemas_model crearLexema(String[] espacio){
-        //Creamos un retorno de tipo recuento lexema con parametros tipo arreglo
+    public static Lexemas_model crearLexema(String[] Array){
+   
         Lexemas_model lexema=null;
-        //creamos reporte lexema con datos y convertimos string a int        
-        lexema= new Lexemas_model(espacio[0],espacio[1],Integer.parseInt(espacio[2]));
+
+        lexema= new Lexemas_model(Array[0],
+                                                            Array[1],
+                                                            Integer.parseInt(Array[2]));
         return lexema;
     }
 }

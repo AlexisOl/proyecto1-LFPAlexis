@@ -9,21 +9,22 @@ package Helper;
  *
  * @author alexis
  */
-public class Datos_manejadores {
-    //inicializamos variables
-    String linea,reduccionLinea;
-    char verificadorLinea;
+public class Ayuda_verificador {
+    String linea;
+     String Cantidad_linea;
+   // nos serviara como auxiliar para ver el tamanio
+     
+     char verificadorLinea;
     int caracteresUsados;
-    public static Datos_manejadores instanciadores;
+    public static Ayuda_verificador instanciadores;
     //creamos constructor para los datos que instanciarán a método de repitencia automata
-    public Datos_manejadores(String linea, String reduccionLinea, char verificadorLinea, int caracteresUsados) {
+    public Ayuda_verificador(String linea, String reduccionLinea, char verificadorLinea, int caracteresUsados) {
         this.linea = linea;
-        this.reduccionLinea = reduccionLinea;
+        this.Cantidad_linea = reduccionLinea;
         this.verificadorLinea = verificadorLinea;
         this.caracteresUsados = caracteresUsados;
     }
     
-    //creamos gets y sets para modificar y llamar datos
     public String getLinea() {
         return linea;
     }
@@ -42,11 +43,11 @@ public class Datos_manejadores {
 
     
     public String getReduccionLinea() {
-        return reduccionLinea;
+        return Cantidad_linea;
     }
 
     public void setReduccionLinea(String reduccionLinea) {
-        this.reduccionLinea = reduccionLinea;
+        this.Cantidad_linea = reduccionLinea;
     }
 
     public int getCaracteresUsados() {
@@ -56,8 +57,7 @@ public class Datos_manejadores {
     public void setCaracteresUsados(int caracteresUsados) {
         this.caracteresUsados = caracteresUsados;
     }
-    //estructuramos creador de un valor DaotosInstanciadores inicializandolo
-    public static void crearDatosInstanciadores(){
-         instanciadores= new Datos_manejadores("","",' ',0);
+    public static void INIcio_lexemas_analisis_manejador(){
+         instanciadores= new Ayuda_verificador("","",' ',0);
     }
 }

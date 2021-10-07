@@ -10,7 +10,7 @@ import Automata_Analisis.Numero_o_Decimal;
 import Automata_Analisis.Operador_Aritmetico;
 import Automata_Analisis.Signo_Agrupacion;
 import Automata_Analisis.Signo_Puntuacion;
-import static Helper.Datos_manejadores.instanciadores;
+import static Helper.Ayuda_verificador.instanciadores;
 import static Helper.Helper_movimiento.movilizar;
 import static JFrame.frame_principal.cargarError;
 
@@ -21,6 +21,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import static JFrame.frame_principal.jTextArea2;
+import Validacion.validaciones;
 
 /**
  *
@@ -28,38 +29,42 @@ import static JFrame.frame_principal.jTextArea2;
  */
 public class repeticiones {
     public static void codigoAutomataRepitencia(String linea, char verificadorLinea,String reduccionLinea,int caracteresUsados,JTextArea MovilizadorDatos){
-        //creamos metodo para reutilizacion de codigo para identificador automatas, reduccion linea es para acortar nuestro dato
         verificadorLinea=reduccionLinea.charAt(0);
         //si contiene espacio avanzamos un caracter
         if (Character.isSpaceChar(verificadorLinea)) {
-            if (movilizar.getHayEspacio()==1) {  //si anteriormente era espacio no tienen que haber dos espacios
+            if (movilizar.getHayEspacio()==1) {  
                 verificadorLinea=reduccionLinea.charAt(0);
             }else{
                 verificadorLinea=reduccionLinea.charAt(1);
             }       
         }
-        //establecemos que modificamos el char a string para validar datos
-        String comprobarPunto=Character.toString(verificadorLinea);
-        //si es letra ingresa a automata identificador
-        if(Character.isLetter(verificadorLinea)){
+        //mira si es letra
+        if(validaciones.esLetra(verificadorLinea)){
             Id.inicio_ID(linea, jTextArea2);
             reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-        }//Si es digito ingresamos a posibilidad de numero o digito
-        else if(Character.isDigit(verificadorLinea)){
+            
+        }
+        //mira si es numero
+        else if(validaciones.esNumero(verificadorLinea)){
             Numero_o_Decimal.empezar_numero_lexema(linea, jTextArea2);
             reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-        }//Si es +-*/ entre signos parecidos significa que entra a operacion
-        else if(comprobarPunto.equals("+")|comprobarPunto.equals("-")|comprobarPunto.equals("*")|comprobarPunto.equals("/")|comprobarPunto.equals("%")){
+        }
+        //mira si es operador
+        else if(validaciones.esAritmetico(verificadorLinea)){
             Operador_Aritmetico.operadorInicio(reduccionLinea, jTextArea2);
             reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-        }//si es . , ; entre signos parecidos significa que entra a puntuacion 
-        else if(comprobarPunto.equals(".")|comprobarPunto.equals(",")|comprobarPunto.equals(";")|comprobarPunto.equals(":")){
+        }
+        //mira si es puntuacion
+        else if(validaciones.esPuntuacion(verificadorLinea)){
             Signo_Puntuacion.puntuacionInicio(linea, jTextArea2);
             reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
-        }//si es ( ) [ { entre signos parecidos significa que entramos a agrupacion
-        else if(comprobarPunto.equals("(")|comprobarPunto.equals(")")|comprobarPunto.equals("[")|comprobarPunto.equals("]")|comprobarPunto.equals("{")|comprobarPunto.equals("}")){
+        }
+        //mira si es agrupacion
+        else if(validaciones.esAgrupacion(verificadorLinea)){
             Signo_Agrupacion.agrupacionInicio(linea, jTextArea2);
             reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
+            
+            
         }else{
             try {
                 //estructuramos que si haya error y modificamos datos

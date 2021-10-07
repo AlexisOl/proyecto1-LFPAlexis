@@ -12,7 +12,7 @@ import Construccion.CargarLexema;
 import Tablas.Lexema_table;
 import Tablas.tokens_Table;
 import Model.Errores;
-import Reportes_Objetos.ReporteTokensObjeto;
+import Reportes_Objetos.TokenreporteController;
 import Model.Lexemas_model;
 import Automata_Analisis.Id;
 import Archive.CargaArchivo;
@@ -34,7 +34,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
-import static Helper.Datos_manejadores.instanciadores;
+import static Helper.Ayuda_verificador.instanciadores;
 import Tablas.Error_Table;
 import Validacion.validaciones;
 
@@ -65,7 +65,7 @@ public class frame_principal extends javax.swing.JFrame {
     // Arraylists
     public static ArrayList<Errores> ErrorLista;
     public static ArrayList<Lexemas_model> lexemaLista;
-    public static ArrayList<ReporteTokensObjeto> Tokenlista;
+    public static ArrayList<TokenreporteController> Tokenlista;
 
 
     public frame_principal() {
