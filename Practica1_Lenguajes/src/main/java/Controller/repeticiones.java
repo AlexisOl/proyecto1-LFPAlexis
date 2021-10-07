@@ -26,7 +26,7 @@ import static JFrame.frame_principal.jTextArea2;
  *
  * @author alexis
  */
-public class CodigoCondicionalRepetidoAutomata {
+public class repeticiones {
     public static void codigoAutomataRepitencia(String linea, char verificadorLinea,String reduccionLinea,int caracteresUsados,JTextArea MovilizadorDatos){
         //creamos metodo para reutilizacion de codigo para identificador automatas, reduccion linea es para acortar nuestro dato
         verificadorLinea=reduccionLinea.charAt(0);
@@ -71,9 +71,9 @@ public class CodigoCondicionalRepetidoAutomata {
                 jTextArea2.setText(jTextArea2.getText()+"------------Error------------ al usar "+movilizar.getCadenaUsada()+"\n");
                 reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
             } catch (IOException ex) {
-                Logger.getLogger(CodigoCondicionalRepetidoAutomata.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(repeticiones.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ClassNotFoundException ex) {
-                Logger.getLogger(CodigoCondicionalRepetidoAutomata.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(repeticiones.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
         //modificamos valores iniciales al recargar este método

@@ -22,7 +22,7 @@ import Automata_Analisis.Signo_Agrupacion;
 import Automata_Analisis.Numero_o_Decimal;
 import Automata_Analisis.Operador_Aritmetico;
 import Automata_Analisis.Signo_Puntuacion;
-import Controller.CodigoCondicionalRepetidoAutomata;
+import Controller.repeticiones;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -360,7 +360,7 @@ public class frame_principal extends javax.swing.JFrame {
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
                     pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
                     while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                        CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
                     }
                 } 
              
@@ -369,7 +369,7 @@ public class frame_principal extends javax.swing.JFrame {
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
                     pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
                     while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                        CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
                     }
                 }//Si es +-*/ entre signos parecidos significa que entra a operacion
                 else if (validaciones.esAritmetico(verificadorLinea))  {
@@ -377,7 +377,7 @@ public class frame_principal extends javax.swing.JFrame {
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
                     pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
                     while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                        CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
                     }
                 }//si es . , ; entre signos parecidos significa que entra a puntuacion
                 else if(validaciones.esAgrupacion(verificadorLinea)){
@@ -385,7 +385,7 @@ public class frame_principal extends javax.swing.JFrame {
                         reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
                         pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
                         while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                            CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                            repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
                         }
                 }  else if(validaciones.esPuntuacion(verificadorLinea)){
 
@@ -393,7 +393,7 @@ public class frame_principal extends javax.swing.JFrame {
                     reduccionLinea=linea.substring(movilizar.getCaracteresUsados(), linea.length());
                     pasadorDatos(linea,reduccionLinea,verificadorLinea);//sirve para enviar datos a instanciador de repitencia
                     while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                        CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                        repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
                     }
                     }else{
                         try {
@@ -407,7 +407,7 @@ public class frame_principal extends javax.swing.JFrame {
                             //señalizaos error
                             jTextArea2.setText(jTextArea2.getText()+"error con el lexema "+movilizar.getCadenaUsada()+"\n");
                             while(movilizar.getCaracteresUsados()<linea.length()){//repetimos instancia de automatas
-                                CodigoCondicionalRepetidoAutomata.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
+                                repeticiones.codigoAutomataRepitencia(instanciadores.getLinea(), instanciadores.getVerificadorLinea(), instanciadores.getReduccionLinea(), movilizar.getCaracteresUsados(), jTextArea2);
                             }
                         } catch (FileNotFoundException ex) {
                             Logger.getLogger(frame_principal.class.getName()).log(Level.SEVERE, null, ex);
